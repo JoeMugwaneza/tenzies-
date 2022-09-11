@@ -1,4 +1,7 @@
 import React from 'react';
+import ReactConfetti from 'react-confetti';
+import Die from './components/Die'
+
 import './styles.css'
 
 function App() {
