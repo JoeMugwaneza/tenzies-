@@ -1,8 +1,80 @@
 * {
     box-sizing: border-box;
-    font-family: 'Marvel', sans-serif;
+    font-family: 'Karla', sans-serif;
 }
 
-body{
-    margin: 0;
+main {
+    padding: 30px;
+}
+.game-container{
+    width: 50%;
+    margin: auto;
+    background-color: #0B2434;
+    padding: 40px;
+    min-width: 300px;
+} 
+
+.inner-tenzies{
+    padding: 20px;
+    background-color: #F5F5F5;
+    height: 350px;
+    max-width: 800px;
+    border-radius: 10px;
+}
+
+.tenzies--title{
+    font-size: 25.6px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 30px;
+    letter-spacing: -0.03em;
+}
+
+.tenzies--instructions{
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    text-align: center;
+    letter-spacing: -0.03em;
+    color: #4A4E74;
+
+}
+
+.tenzies-display{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    padding: 10px;
+   
+}
+
+.tenzies-number{
+    cursor: pointer;
+    font-family: 'Karla', sans-serif;
+    font-size: 20.59px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 24.07px;
+    background: #FFFFFF;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    margin: 10px;
+}
+
+.tenzies-btn{
+    font-family: 'Karla', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    padding: 5px 20px;
+    background-color: #5035FF;
+    box-shadow: 0px 3.2px 7.68px rgba(0, 0, 0, 0.18);
+    border-radius: 4px;
+    display: block;
+   margin-left: auto;
+   margin-right: auto;
+    
 }
