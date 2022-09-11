@@ -12,16 +12,16 @@ function App() {
         <h2 className='tenzies--title'>Tenzies</h2>
         <p className='tenzies--instructions'>Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
         <div className='tenzies-display'>
-          <div className='tenzies-number'>1</div>
-          <div className='tenzies-number'>2</div>
-          <div className='tenzies-number'>3</div>
-          <div className='tenzies-number'>4</div>
-          <div className='tenzies-number'>5</div>
-          <div className='tenzies-number'>6</div>
-          <div className='tenzies-number'>7</div>
-          <div className='tenzies-number'>8</div>
-          <div className='tenzies-number'>9</div>
-          <div className='tenzies-number'>10</div>
+          <Die value="1" />
+          <Die value="2" />
+          <Die value="3" />
+          <Die value="4" />
+          <Die value="5" />
+          <Die value="6" />
+          <Die value="7" />
+          <Die value="8" />
+          <Die value="9" />
+          <Die value="10" />
         </div>
         <button className='tenzies-btn'>Roll</button>
       </div>

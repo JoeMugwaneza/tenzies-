@@ -2,8 +2,6 @@ import React from 'react';
 
 export default function Die(props){
     return(
-        <div>
-            
-        </div>
+        <div className='tenzies-number'>{props.value}</div>
     )
 }
