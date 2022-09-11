@@ -64,6 +64,7 @@ main {
 }
 
 .tenzies-btn{
+    cursor: pointer;
     font-family: 'Karla', sans-serif;
     font-style: normal;
     font-weight: 700;

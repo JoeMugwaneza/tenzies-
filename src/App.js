@@ -27,7 +27,9 @@ function App() {
         <div className='tenzies-display'>
           {diceElements}
         </div>
-        <button className='tenzies-btn'>Roll</button>
+        <button className='tenzies-btn'
+        onClick={allNewDice}
+        >Roll</button>
       </div>
     </div>
     </main>
