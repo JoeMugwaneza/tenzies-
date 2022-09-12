@@ -1,3 +1,4 @@
+import react from 'react';
 import React from 'react';
 import ReactConfetti from 'react-confetti';
 import Die from './components/Die'
@@ -18,6 +19,10 @@ function App() {
 
   const diceElements = dice.map((die, index) => <Die key={index} value={die} />)
   
+  function rollDice(){
+    setDice(allNewDice())
+  }
+
   return (
     <main>
     <div className='game-container'>
@@ -28,7 +33,7 @@ function App() {
           {diceElements}
         </div>
         <button className='tenzies-btn'
-        onClick={allNewDice}
+        onClick={rollDice}
         >Roll</button>
       </div>
     </div>
