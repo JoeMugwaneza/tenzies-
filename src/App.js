@@ -1,5 +1,6 @@
 import react from 'react';
 import React from 'react';
+import { nanoid } from 'nanoid';
 import ReactConfetti from 'react-confetti';
 import Die from './components/Die'
 
@@ -9,36 +10,33 @@ function App() {
 
   const [dice, setDice] = React.useState(allNewDice())
 
+  // function allNewDice(){
+  //   const newDice = []
+  //   for (let i = 0; i < 10; i++){
+  //     newDice.push(Math.ceil(Math.random()*6))
+  //   }
+  //   return newDice
+  // }
+
   function allNewDice(){
-    const newDice = []
-    for (let i = 0; i < 10; i++){
-      newDice.push(Math.ceil(Math.random()*6))
-    }
-    return newDice
-  }
-
-  const diceElements = dice.map((die, index) => <Die key={index} value={die} />)
-
-
-  
-  function rollDice(){
-    setDice(allNewDice())
-  }
-
-  function objectDice(){
     const newDice = [];
     for (let i = 0; i < 10; i++){
       const randomNumber = Math.ceil(Math.random()*6);
       newDice.push({
-        id: i + 1,
-        die: randomNumber,
-        isHeld: false
+        value: randomNumber,
+        isHeld: false,
+        id: nanoid(),
     })
     }
     return newDice
   }
 
-  console.log(objectDice())
+  const diceElements = dice.map((die) => <Die key={die.id} die={die} />)
+
+  
+  function rollDice(){
+    setDice(allNewDice())
+  }
 
   return (
     <main>
