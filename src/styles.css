@@ -79,3 +79,11 @@ main {
    margin-left: auto;
    margin-right: auto;
 }
+
+.tenzies-btn:focus{
+    outline: none;
+}
+
+.tenzies-btn:active{
+    box-shadow: inset 5px 5px 10px -3px rgba(0, 0, 0, 0.7);
+}
