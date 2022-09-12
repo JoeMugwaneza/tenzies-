@@ -1,8 +1,8 @@
 import React from 'react';
 
 export default function Die(props){
-    console.log(props)
+    
     return(
-        <div  className={props.die.isHeld ? "tenzies-number--held" : "tenzies-number"}>{props.die.value}</div>
+        <div  className={props.isHeld ? "tenzies-number--held" : "tenzies-number"} onClick={(id) => props.handleClick(props.id)}>{props.value}</div>
     )
 }

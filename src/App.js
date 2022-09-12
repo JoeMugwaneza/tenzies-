@@ -10,28 +10,32 @@ function App() {
 
   const [dice, setDice] = React.useState(allNewDice())
 
-  // function allNewDice(){
-  //   const newDice = []
-  //   for (let i = 0; i < 10; i++){
-  //     newDice.push(Math.ceil(Math.random()*6))
-  //   }
-  //   return newDice
-  // }
-
   function allNewDice(){
     const newDice = [];
     for (let i = 0; i < 10; i++){
       const randomNumber = Math.ceil(Math.random()*6);
       newDice.push({
         value: randomNumber,
-        isHeld: false,
+        isHeld: true,
         id: nanoid(),
     })
     }
     return newDice
   }
 
-  const diceElements = dice.map((die) => <Die key={die.id} die={die} />)
+  function holdDice(id){
+    console.log("Unique: " + id)
+  }
+
+
+  const diceElements = dice.map((die) => <Die 
+    key={die.id}
+    id={die.id} 
+    value={die.value} 
+    isHeld={die.isHeld} 
+    handleClick={holdDice}
+    
+  />)
 
   
   function rollDice(){
