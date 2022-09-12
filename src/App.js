@@ -16,7 +16,7 @@ function App() {
       const randomNumber = Math.ceil(Math.random()*6);
       newDice.push({
         value: randomNumber,
-        isHeld: true,
+        isHeld: false,
         id: nanoid(),
     })
     }
@@ -24,9 +24,14 @@ function App() {
   }
 
   function holdDice(id){
-    console.log("Unique: " + id)
-  }
+    setDice(oldDice => oldDice.map(die => {
+      if(die.id === id){
+        die.isHeld = true
+      }
+      return die
+    }))
 
+  }
 
   const diceElements = dice.map((die) => <Die 
     key={die.id}
@@ -34,7 +39,7 @@ function App() {
     value={die.value} 
     isHeld={die.isHeld} 
     handleClick={holdDice}
-    
+
   />)
 
   
