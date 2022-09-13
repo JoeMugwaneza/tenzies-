@@ -1,7 +1,7 @@
 import react from 'react';
 import React from 'react';
 import { nanoid } from 'nanoid';
-import ReactConfetti from 'react-confetti';
+import Confetti from 'react-confetti';
 import Die from './components/Die'
 
 import './styles.css'
@@ -43,13 +43,18 @@ function App() {
 
   
   function rollDice(){
-    const dice = allNewDice();
-    setDice(dice => dice.map(die => {
-      return die.isHeld ? die : generateNewDie() 
-   }))
+    if(!tenzies){
+      const dice = allNewDice();
+      setDice(dice => dice.map(die => {
+        return die.isHeld ? die : generateNewDie() 
+     }))
+    } else{
+      setTenzies(false)
+      setDice(allNewDice())
+    }
   }
 
-  const [tensies, setTenzies] = React.useState(false);
+  const [tenzies, setTenzies] = React.useState(false);
 
   React.useEffect(() =>{
     const allHeld = dice.every(die => die.isHeld)
@@ -63,6 +68,7 @@ function App() {
 
   return (
     <main>
+      {tenzies && <Confetti />}
     <div className='game-container'>
       <div className='inner-tenzies'>
         <h2 className='tenzies--title'>Tenzies</h2>
@@ -72,7 +78,7 @@ function App() {
         </div>
         <button className='tenzies-btn'
         onClick={rollDice}
-        >Roll</button>
+        >{tenzies ? "New Game" : "Roll"}</button>
       </div>
     </div>
     </main>
