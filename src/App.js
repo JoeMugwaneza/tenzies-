@@ -10,15 +10,18 @@ function App() {
 
   const [dice, setDice] = React.useState(allNewDice())
 
+  function generateNewDie(){
+    return {
+      value: Math.ceil(Math.random()*6),
+      isHeld: false,
+      id: nanoid()
+    }
+  }
+
   function allNewDice(){
     const newDice = [];
     for (let i = 0; i < 10; i++){
-      const randomNumber = Math.ceil(Math.random()*6);
-      newDice.push({
-        value: randomNumber,
-        isHeld: false,
-        id: nanoid()
-    })
+      newDice.push(generateNewDie())
     }
     return newDice
   }
@@ -40,17 +43,25 @@ function App() {
 
   
   function rollDice(){
-    const dice = allNewDice()
-   setDice(dice => dice.map(die => {
-    return die.isHeld ? die : 
-    {
-      value: Math.ceil(Math.random()*6),
-      isHeld: false,
-      id: nanoid(),
-    } 
+    const dice = allNewDice();
+    setDice(dice => dice.map(die => {
+      return die.isHeld ? die : generateNewDie() 
    }))
-   
   }
+
+  const [tensies, setTenzies] = React.useState(false);
+
+  React.useEffect(() =>{
+    const allHeld = dice.every(die => die.isHeld)
+    const firstValue = dice[0].value;
+
+    const AllSameValues = dice.every(die => die.value === firstValue)
+
+    if(allHeld && AllSameValues){
+      setTenzies(true);
+      console.log("You won!")
+    }
+  }, [dice])
 
   return (
     <main>
