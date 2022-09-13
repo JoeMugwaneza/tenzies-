@@ -17,15 +17,15 @@ function App() {
       newDice.push({
         value: randomNumber,
         isHeld: false,
-        id: nanoid(),
+        id: nanoid()
     })
     }
     return newDice
   }
 
   function holdDice(id){
-    setDice(oldDice => oldDice.map(die => {
-      return die.id === id ? {...die, isHeld: !die.isHeld} : die
+    setDice(oldDice => oldDice.map(die =>{
+      return die.id === id ? { ...die, isHeld: !die.isHeld} : die
     }))
   }
 
@@ -40,7 +40,16 @@ function App() {
 
   
   function rollDice(){
-    setDice(allNewDice())
+    const dice = allNewDice()
+   setDice(dice => dice.map(die => {
+    return die.isHeld ? die : 
+    {
+      value: Math.ceil(Math.random()*6),
+      isHeld: false,
+      id: nanoid(),
+    } 
+   }))
+   
   }
 
   return (
