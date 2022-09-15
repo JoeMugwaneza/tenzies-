@@ -15,6 +15,7 @@ function App() {
       value: Math.ceil(Math.random()*6),
       isHeld: false,
       id: nanoid()
+    
     }
   }
 
